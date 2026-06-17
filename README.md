@@ -102,4 +102,4 @@ This project is equipped with a GitHub Actions workflow that runs automatically 
 * Generates an Allure report.
 * Deploys the Allure report to GitHub Pages.
 
-The latest test report can be viewed here: `https://github.com/ErnestSosnovskyi/Playwright/actions/runs/27711879640/job/81981246637`
+The latest test report can be viewed here: https://github.com/ErnestSosnovskyi/Playwright/actions/runs/27711879640/job/81981246637
