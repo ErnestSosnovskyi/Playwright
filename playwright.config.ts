@@ -1,4 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
   testDir: './tests',  
@@ -13,6 +16,7 @@ export default defineConfig({
     baseURL: 'https://www.redmine.org/',
     trace: 'on-first-retry',
     locale: 'ru-RU',
+    viewport: { width: 1920, height: 1080 },
     screenshot: 'only-on-failure',
   },
   projects: [

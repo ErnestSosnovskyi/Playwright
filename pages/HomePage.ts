@@ -22,4 +22,24 @@ export class HomePage {
     async goto() {
         await this.page.goto('/', { waitUntil: 'domcontentloaded' });
     }
+
+    async fillSearch(query: string) {
+        await this.searchInput.fill(query);
+    }
+
+    async submitSearch() {
+        await this.searchInput.press('Enter');
+    }
+
+    async goToSignIn() {
+        await this.signInLink.click();
+    }
+
+    async goToProjects() {
+        await this.projectsLink.click();
+    }
+
+    async goToDownload() {
+        await this.downloadTab.click();
+    }
 }

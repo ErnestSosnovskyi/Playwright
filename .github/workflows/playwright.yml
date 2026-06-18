@@ -24,7 +24,10 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npx playwright test
+      env:
+        REDMINE_USERNAME: ${{ secrets.REDMINE_USERNAME }}
+        REDMINE_PASSWORD: ${{ secrets.REDMINE_PASSWORD }}
+      run: npm run test
       continue-on-error: true
 
     - name: Get Allure history
@@ -49,4 +52,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
-        publish_dir: allure-history
+        publish_dir: allure-history   
+    

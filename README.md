@@ -33,6 +33,16 @@ redmine-playwright-test/
 
 *(Note: Directories like `allure-results`, `downloads`, `playwright-report`, `node_modules`, and `test-results` are excluded from version control via `.gitignore`).*
 
+## Environment Variables
+
+Create a `.env` file in the root directory based on the `.env.example` structure to store sensitive credentials securely:
+
+```bash
+REDMINE_USERNAME=your_username
+REDMINE_PASSWORD=your_password
+```
+*(The `.env` file is added to `.gitignore` to prevent secret leaks).*
+
 ## Prerequisites
 
 Before running the tests locally, ensure you have the following installed:
@@ -61,18 +71,20 @@ npm install
 npx playwright install --with-deps
 ```
 
-## Running the Tests
+## Running the Tests via NPM Scripts
 
-To execute the test suite across all configured browsers (Chromium, Firefox, WebKit) in headless mode:
+The `package.json` file includes convenient scripts for running test suite across all configured browsers (Chromium, Firefox, WebKit) and generating reports:
+
+* **Run all tests in headless mode:**
 
 ```bash
-npx playwright test
+npm run test
 ```
 
-To run tests in UI mode (interactive mode):
+* **Run tests in UI mode (interactive mode):**
 
 ```bash
-npx playwright test --ui
+npm run test:ui
 ```
 
 ## Viewing Test Reports
@@ -83,7 +95,7 @@ This project uses Allure to generate visually appealing and detailed test report
 After the tests are completed, run the following command to serve the report locally:
 
 ```bash
-npx allure serve allure-results
+npm run report
 ```
 *(This will automatically open the generated HTML report in your default web browser).*
 
@@ -91,7 +103,7 @@ npx allure serve allure-results
 You can also view the built-in Playwright HTML report:
 
 ```bash
-npx playwright show-report
+npm run show-report
 ```
 
 ## CI/CD Pipeline (GitHub Actions)
